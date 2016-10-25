@@ -1,0 +1,61 @@
+body 
+{
+	font-family: Monospace;
+	font-weight: bold;
+	background-color: #eee;
+	margin: 0px;
+	overflow: hidden;
+}
+
+#dbtitle
+{
+    font-size: xx-large;
+    text-align: center;
+}
+
+#dbscorelb, #dbscorev {
+  font-size: 20px;
+}
+
+#helptext
+{
+   position: relative;
+   top: 20px;
+   left: 40px;
+   font-size: 14px;
+}
+
+.btn {
+  background: #ddd;
+  background-image: -webkit-linear-gradient(top, #dbdbdb, #9fa2a3);
+  background-image: -moz-linear-gradient(top, #dbdbdb, #9fa2a3);
+  background-image: -ms-linear-gradient(top, #dbdbdb, #9fa2a3);
+  background-image: -o-linear-gradient(top, #dbdbdb, #9fa2a3);
+  background-image: linear-gradient(to bottom, #dbdbdb, #9fa2a3);
+  -webkit-border-radius: 15;
+  -moz-border-radius: 15;
+  border-radius: 15px;
+  padding: 10px 20px 10px 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #eee;
+  background-image: -webkit-linear-gradient(top, #eee, #9fa2a3);
+  background-image: -moz-linear-gradient(top, #eee, #9fa2a3);
+  background-image: -ms-linear-gradient(top, #eee, #9fa2a3);
+  background-image: -o-linear-gradient(top, #eee, #9fa2a3);
+  background-image: linear-gradient(to bottom, #eee, #9fa2a3);
+}
+
+.under {
+    text-decoration: underline;
+}
+
+div.hidden {
+    display: none;
+}
+
+li {
+    display: inline;
+}
