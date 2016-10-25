@@ -60,7 +60,7 @@ function init()
     var VIEW_ANGLE = 45, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 20000;
     camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
     scene.add(camera);
-    camera.position.set(0, 400, 200);
+    camera.position.set(0, 250, 200);
     camera.lookAt(scene.position);
 
     // RENDERER
@@ -226,8 +226,8 @@ function update_board() {
 function moveFigureToPlace( fig, place )
 {
     var tween = new TWEEN.Tween( fig.position )
-        .to({x: place.position.x, z: place.position.z}, 1000)
-        .easing(TWEEN.Easing.Cubic.InOut)
+        .to({x: place.position.x, z: place.position.z}, 1200)
+        .easing(TWEEN.Easing.Elastic.InOut)
         .onComplete(update_board)
         .start();
 };
