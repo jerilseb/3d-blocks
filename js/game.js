@@ -189,6 +189,9 @@ function change_figure_size( obj, new_fig ) {
             scale_figure(obj, fo.f);
         })
         .start();
+    setTimeout(function() {
+        sound_grow();
+    }, 600);
 }
 
 function update_board() {
@@ -312,6 +315,14 @@ function sound_tock()
 {
     if(sound_on) {
       var snd = new Audio("wav/woodblock.wav"); // buffers automatically when created
+      snd.play();
+  }
+}
+
+function sound_grow()
+{
+    if(sound_on) {
+      var snd = new Audio("wav/grow.wav"); // buffers automatically when created
       snd.play();
   }
 }
