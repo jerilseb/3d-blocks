@@ -74,6 +74,8 @@ function init()
 
     // CONTROLS
     controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.minDistance = 200;
+    controls.maxDistance = 500;
 //    controls = new THREE.DeviceOrientationControls(camera, renderer.domElement);
 
     // LIGHT
