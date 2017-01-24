@@ -65,6 +65,8 @@ function init()
 
     // RENDERER
     renderer = new THREE.WebGLRenderer({antialias: true});
+    //renderer.shadowMap.enabled = true;
+    //renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
     renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
     document.body.appendChild(renderer.domElement);
 
@@ -77,23 +79,26 @@ function init()
     controls.minDistance = 200;
     controls.maxDistance = 500;
     controls.minPolarAngle = 0.2; // radians
-    controls.maxPolarAngle = 1.2; // radians
+    controls.maxPolarAngle = 1.3; // radians
 //    controls = new THREE.DeviceOrientationControls(camera, renderer.domElement);
 
     // LIGHT
 
     var light = new THREE.DirectionalLight(0xffffff, 1);
     light.position.set(-1000, 1000, 1000);
+    light.castShadow = true;  
     scene.add(light);
 
     var light = new THREE.DirectionalLight(0xffffff, 0.6);
     light.position.set(1000, 1000, -1000);
+    light.castShadow = true;  
     scene.add(light);
     
     hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
     hemiLight.color.setHSL( 0.6, 1, 0.6 );
     hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
     hemiLight.position.set( 0, 1000, 0 );
+    hemiLight.castShadow = true;  
     scene.add( hemiLight );
     
 
@@ -122,8 +127,9 @@ function create_place( x, y, typ )
     Texture.repeat.set( 1, 1 );
     var Material = new THREE.MeshPhongMaterial( { map: Texture, side: THREE.DoubleSide } );
     var Material = new THREE.MeshBasicMaterial( { map: Texture, side: THREE.DoubleSide } );
-    var cubeGeometry = new THREE.BoxGeometry(48, 1, 48);
+    var cubeGeometry = new THREE.BoxGeometry(48, 1.2, 48);
     var cube = new THREE.Mesh(cubeGeometry, Material);
+    cube.receiveShadow = true;
     cube.position.set(x * PLACE_WIDTH + PLACE_X, PLACE_Y, y * PLACE_WIDTH + PLACE_Z);
     cube.name = 'place_'+x+'_'+y;
     cube.object_info = new OBJECT_INFO('place', x, y, 0);
