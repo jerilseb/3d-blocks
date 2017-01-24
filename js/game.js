@@ -60,7 +60,7 @@ function init()
     var VIEW_ANGLE = 45, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 20000;
     camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
     scene.add(camera);
-    camera.position.set(0, 250, 200);
+    camera.position.set(0, 270, 200);
     camera.lookAt(scene.position);
 
     // RENDERER
@@ -183,7 +183,7 @@ function change_figure_size( obj, new_fig ) {
     var fo = {f: obj.object_info.fig};
     var fo_end = {f: new_fig};
     var tween = new TWEEN.Tween( fo )
-        .to(fo_end, 1500)
+        .to(fo_end, 1400)
         .easing(TWEEN.Easing.Elastic.InOut)
         .onUpdate(function() {
             scale_figure(obj, fo.f);
@@ -275,13 +275,17 @@ function swap_reserve() {
       var obj = nextobj;
       nextobj = reserveobj;
       reserveobj = obj;
+      set_figure_place(nextobj, place_n);
+      set_figure_place(reserveobj, place_r);
     } else {
       moveFigureToPlace( nextobj, place_r );
       reserveobj = nextobj;
-      nextobj = create_figure( -2, 4, triple_game.reserve( true ) );
+      setTimeout(function() {
+        nextobj = create_figure( -2, 4, triple_game.reserve( true ) );
+        set_figure_place(nextobj, place_n);
+        set_figure_place(reserveobj, place_r);
+      }, 1000);
     }
-    set_figure_place(nextobj, place_n);
-    set_figure_place(reserveobj, place_r);
 }
 
 
