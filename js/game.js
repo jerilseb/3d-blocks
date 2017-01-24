@@ -76,6 +76,8 @@ function init()
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.minDistance = 200;
     controls.maxDistance = 500;
+    controls.minPolarAngle = 0.2; // radians
+    controls.maxPolarAngle = 1.2; // radians
 //    controls = new THREE.DeviceOrientationControls(camera, renderer.domElement);
 
     // LIGHT
