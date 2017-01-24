@@ -25,6 +25,11 @@ body
    font-size: 14px;
 }
 
+#dblog {
+  font-size: 25px;
+  padding: 40px;
+}
+
 .btn {
   background: #ddd;
   background-image: -webkit-linear-gradient(top, #dbdbdb, #9fa2a3);
