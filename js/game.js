@@ -17,7 +17,6 @@ var PLACE_TEXTURE_IMG = [
 ];
 
 
-
 var dashboard;
 var dblog;
 var dbscorev;
@@ -72,7 +71,7 @@ function init()
 
     // EVENTS
     THREEx.WindowResize(renderer, camera);
-//	THREEx.FullScreen.bindKey({ charCode : 'm'.charCodeAt(0) });
+    //THREEx.FullScreen.bindKey({ charCode : 'm'.charCodeAt(0) });
 
     // CONTROLS
     controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -80,7 +79,7 @@ function init()
     controls.maxDistance = 500;
     controls.minPolarAngle = 0.2; // radians
     controls.maxPolarAngle = 1.3; // radians
-//    controls = new THREE.DeviceOrientationControls(camera, renderer.domElement);
+    //controls = new THREE.DeviceOrientationControls(camera, renderer.domElement);
 
     // LIGHT
 
@@ -144,7 +143,6 @@ function create_places()
     // base floor
     for (var y = 0; y < board_size; ++y) 
         for (var x = 0; x < board_size; ++x) {
-//            obj = place0.clone();
             obj = create_place(x, y, 0);
             scene.add(obj);
     }        
@@ -325,7 +323,7 @@ function getClickedObject(event)
 };
 
 
-function sound_tock()
+function sound_move()
 {
     if(sound_on) {
       var snd = new Audio("wav/woodblock.wav"); // buffers automatically when created
@@ -363,20 +361,20 @@ function onDocumentClick(event)
 
         if( obj.name === 'reserve_place' ) {
             swap_reserve();
-            sound_tock();
+            sound_move();
             return;
         }
 
         if( obj.name === 'figure_-2_2' ) {
             swap_reserve();
-            sound_tock();
+            sound_move();
             return;
         }
 
         if( obj.object_info.type === 'place' ) {
           if( triple_game.is_legal_move(obj.object_info.x, obj.object_info.y) ) {
               user_move(obj);
-              sound_tock();
+              sound_move();
           }
           return;
         }
@@ -401,7 +399,7 @@ function switchSound()
 {
     var el =  document.getElementById('btnsound');
     sound_on = ! sound_on;
-    el.innerHTML = sound_on ? "Sound Off" : "Sound On";
+    el.innerHTML = sound_on ? "Mute" : "Unmute";
 }
 
 
