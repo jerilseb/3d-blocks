@@ -6,6 +6,7 @@ Play here -  https://jerilseb.github.io/3d-blocks/
 
 ## Screenshot
 
-![screenshot](https://user-images.githubusercontent.com/3944720/31856759-d5c0d602-b6e6-11e7-993b-8c7348897403.gif)
+![screen](https://user-images.githubusercontent.com/3944720/31861738-f1709e5a-b74f-11e7-868a-0f2195836526.gif)
+
 
 
